@@ -1,3 +1,4 @@
-<h1>Welcome</h1>
-<p>Find me in app/views/pages/welcome.html.erb</p>
-<p>liquuid <%= link_to "foo", "https://liquuid.me" %></p>
+<% @posts.each do |post| %>
+  <%= render'posts/post', post: post %>
+  <br/><br/><br/>
+<% end %>
