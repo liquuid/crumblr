@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hearths, only: :create
   resources :posts
   get 'about' => 'pages#about'
   root 'pages#welcome'

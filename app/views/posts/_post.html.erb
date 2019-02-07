@@ -1,5 +1,13 @@
 <p>
-  <h2><%= link_to post.title.capitalize, post %></h2>
+  <h2>
+
+      <%= form_for(Hearth.new) do |f| %>
+      <%= f.hidden_field :post_id, value: post.id   %>
+      <%= f.submit "♥", class: "btn btn-danger pull-right" %>
+      <% end %>
+    <%= link_to post.title.capitalize, post %>
+
+  </h2>
 </p>
 <p>
   <% if post.kind == 'image' %>
@@ -10,6 +18,7 @@
 </p>
 <p class="text-muted">
   <small>Posted on:  <%= post.created_at.to_formatted_s(:long) %></small>
+  <small class="pull-right"><%= post.hearths.count %> Hearts</small>
 </p>
 
 <%= link_to 'Edit', edit_post_path(post) %> |
